@@ -1,0 +1,9 @@
+#################################
+# Messages configuration file   #
+# All messages are define here. #
+#################################
+
+messages:
+  commandDisabled: '&cThat command is disabled.'
+
+version: "0.0.1"

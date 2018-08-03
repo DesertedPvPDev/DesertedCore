@@ -1,0 +1,14 @@
+#######################################
+# Disabled commands                   #
+# For each command to be disabled,    #
+# simply add a line with the command. #
+#######################################
+disabledCommands:
+  - "pl"
+  - "plugns"
+  - "version"
+  - "bukkit:"
+  - "me"
+  - "tell"
+
+version: "0.0.1"
