@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 /**
  * A simple utility class to make configurations files
  * Simply create a new instance and use needed methods
- * NOTE: This class automagicly add default vlaues to prevent NPE's
+ * NOTE: This class automagicly add default values to prevent NPE's
  */
 public class ConfigFile {
 
@@ -37,6 +37,11 @@ public class ConfigFile {
     private String fileName;
 
     /**
+     * The plugins file resource name
+     */
+    private String resourceName;
+
+    /**
      * Plugins logger
      */
     private Logger logger;
@@ -51,6 +56,7 @@ public class ConfigFile {
     public ConfigFile(JavaPlugin pl, String configName, String version, Logger logger) {
         this.plugin = pl;
         fileName = pl.getDataFolder() + File.separator + configName + ".yml";
+        this.resourceName = configName + ".yml";
         this.file = new File(fileName);
         this.logger = logger;
         reload();
@@ -116,7 +122,7 @@ public class ConfigFile {
         }
 
         if (!file.exists()) {
-            plugin.saveResource(fileName, true);
+            plugin.saveResource(resourceName, true);
             logger.info("Created missing config file: " + file.getName());
         }
     }
