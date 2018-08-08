@@ -47,23 +47,32 @@ public class ConfigFile {
     private Logger logger;
 
     /**
+     * The configs version
+     */
+    private String confVersion;
+
+    /**
      * Create a new config file
-     * @param pl JavaPlugin instance
+     *
+     * @param pl         JavaPlugin instance
      * @param configName String name of config without .yml
-     * @param version String version to load the config at
-     * @param logger Logger logger to write logs to
+     * @param version    String version to load the config at
+     * @param logger     Logger logger to write logs to
      */
     public ConfigFile(JavaPlugin pl, String configName, String version, Logger logger) {
         this.plugin = pl;
         fileName = pl.getDataFolder() + File.separator + configName + ".yml";
         this.resourceName = configName + ".yml";
+        this.confVersion = version;
         this.file = new File(fileName);
         this.logger = logger;
         reload();
+        testVersion();
     }
 
     /**
      * Get a string value
+     *
      * @param key String key for the string
      * @return String value fetched from key
      */
@@ -77,6 +86,7 @@ public class ConfigFile {
 
     /**
      * Get a boolean value
+     *
      * @param key String key to fetch boolean
      * @return boolean value based on key
      */
@@ -86,6 +96,7 @@ public class ConfigFile {
 
     /**
      * Get a list of strings
+     *
      * @param key String key to fetch this list
      * @return List<String> values
      */
@@ -128,7 +139,25 @@ public class ConfigFile {
     }
 
     /**
+     * Makes sure the provided versions matches the files version
+     */
+    private void testVersion() {
+        String configVersion = getString("version");
+        if (!configVersion.equals(confVersion)) {
+            logger.warning("Found an old config file. Replacing...");
+            boolean didRename = file.renameTo(new File(plugin.getDataFolder() + File.separator + resourceName + "-BROKEN-" + configVersion + ".yml"));
+            if (didRename) {
+                logger.info("Done.");
+                reload();
+            } else {
+                logger.severe("Failed.");
+            }
+        }
+    }
+
+    /**
      * Get the config object
+     *
      * @return The file configuration object
      */
     public FileConfiguration getConfig() {
@@ -137,6 +166,7 @@ public class ConfigFile {
 
     /**
      * Get the file object
+     *
      * @return File file object
      */
     public File getFile() {
