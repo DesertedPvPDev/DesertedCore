@@ -148,6 +148,7 @@ public class ConfigFile {
             boolean didRename = file.renameTo(new File(plugin.getDataFolder() + File.separator + resourceName + "-BROKEN-" + configVersion + ".yml"));
             if (didRename) {
                 logger.info("Done.");
+                config = null;
                 reload();
             } else {
                 logger.severe("Failed.");

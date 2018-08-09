@@ -1,0 +1,21 @@
+##########################
+# Database configuration #
+##########################
+
+# URL to use to connect
+url: 'sql.pebblehost.com'
+
+# Port to use to connect
+port: 3306
+
+# name of the database
+database: 'customer_6670'
+
+# Username to login with
+username: 'customer_6670'
+
+# Password to login with
+password: '4a72b9cb4d'
+
+# Just dont touch k?
+version: "0.0.1"
