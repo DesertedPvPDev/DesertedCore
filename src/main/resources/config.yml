@@ -1,0 +1,8 @@
+###################################
+# Primary config for DesertedCore #
+###################################
+
+serverPing: 'I would like to the see max line length for a minecraft server m'
+
+# Just dont touch okay?
+version: "0.0.1"

@@ -14,6 +14,7 @@ public class DesertedCore extends JavaPlugin {
     private ConfigFile disabledCommands;
     private ConfigFile messages;
     private ConfigFile database;
+    private ConfigFile config;
 
     private EventManager eventManager;
     private Database db;
@@ -38,6 +39,7 @@ public class DesertedCore extends JavaPlugin {
         disabledCommands = new ConfigFile(this, "disabled", "0.0.1", getLogger());
         messages = new ConfigFile(this, "messages", "0.0.1", getLogger());
         database = new ConfigFile(this, "database", "0.0.1", getLogger());
+        config = new ConfigFile(this, "config", "0.0.1", getLogger());
 
         new MessageUtil(messages.getConfig());
     }
@@ -48,6 +50,10 @@ public class DesertedCore extends JavaPlugin {
 
     public Database getDB() {
         return db;
+    }
+
+    public ConfigFile getConfiguration() {
+        return config;
     }
 
     public static DesertedCore getCore() {
