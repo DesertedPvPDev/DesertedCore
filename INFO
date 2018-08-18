@@ -1,1 +1,5 @@
 deserted.overridedisable - Override command disabling
+
+msg:
+  core.msg
+  Send a message

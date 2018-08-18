@@ -1,9 +1,11 @@
 package codes.matthewp.desertedcore;
 
+import codes.matthewp.desertedcore.command.MessageCmd;
 import codes.matthewp.desertedcore.config.api.ConfigFile;
 import codes.matthewp.desertedcore.database.Database;
 import codes.matthewp.desertedcore.event.EventManager;
 import codes.matthewp.desertedcore.message.MessageUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -28,6 +30,7 @@ public class DesertedCore extends JavaPlugin {
         db = new Database(database.getConfig());
         eventManager = new EventManager(this);
         eventManager.registerEvents();
+        loadCommands();
     }
 
     @Override
@@ -37,11 +40,15 @@ public class DesertedCore extends JavaPlugin {
 
     private void loadFiles() {
         disabledCommands = new ConfigFile(this, "disabled", "0.0.1", getLogger());
-        messages = new ConfigFile(this, "messages", "0.0.1", getLogger());
+        messages = new ConfigFile(this, "messages", "0.0.2", getLogger());
         database = new ConfigFile(this, "database", "0.0.1", getLogger());
         config = new ConfigFile(this, "config", "0.0.1", getLogger());
 
         new MessageUtil(messages.getConfig());
+    }
+
+    private void loadCommands() {
+        getCommand("msg").setExecutor(new MessageCmd(this));
     }
 
     public ConfigFile getDisabledCommands() {
