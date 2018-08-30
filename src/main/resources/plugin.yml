@@ -5,3 +5,5 @@ version: 0.0.1
 commands:
   msg:
     description: Message a player
+  discord:
+    description: Get the discord link

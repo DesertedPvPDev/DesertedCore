@@ -1,5 +1,6 @@
 package codes.matthewp.desertedcore;
 
+import codes.matthewp.desertedcore.command.DiscordCmd;
 import codes.matthewp.desertedcore.command.MessageCmd;
 import codes.matthewp.desertedcore.config.api.ConfigFile;
 import codes.matthewp.desertedcore.database.Database;
@@ -49,6 +50,7 @@ public class DesertedCore extends JavaPlugin {
 
     private void loadCommands() {
         getCommand("msg").setExecutor(new MessageCmd(this));
+        getCommand("discord").setExecutor(new DiscordCmd(this));
     }
 
     public ConfigFile getDisabledCommands() {

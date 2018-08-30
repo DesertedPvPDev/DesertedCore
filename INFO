@@ -3,3 +3,6 @@ deserted.overridedisable - Override command disabling
 msg:
   core.msg
   Send a message
+discord:
+  core.discord
+  See the discord link

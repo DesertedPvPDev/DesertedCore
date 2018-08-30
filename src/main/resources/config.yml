@@ -2,7 +2,11 @@
 # Primary config for DesertedCore #
 ###################################
 
+# Ping line
 serverPing: 'I would like to the see max line length for a minecraft server m'
+
+# Discord message
+discordMsg: '&6Join our discord at: '
 
 # Just dont touch okay?
 version: "0.0.1"
