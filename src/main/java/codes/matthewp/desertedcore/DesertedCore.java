@@ -5,6 +5,7 @@ import codes.matthewp.desertedcore.command.MessageCmd;
 import codes.matthewp.desertedcore.config.api.ConfigFile;
 import codes.matthewp.desertedcore.database.Database;
 import codes.matthewp.desertedcore.event.EventManager;
+import codes.matthewp.desertedcore.manager.BroadcastManager;
 import codes.matthewp.desertedcore.message.MessageUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,6 +33,7 @@ public class DesertedCore extends JavaPlugin {
         eventManager = new EventManager(this);
         eventManager.registerEvents();
         loadCommands();
+        new BroadcastManager(config.getConfig().getConfigurationSection("broadcaster"), this);
     }
 
     @Override

@@ -8,5 +8,24 @@ serverPing: 'I would like to the see max line length for a minecraft server m'
 # Discord message
 discordMsg: '&6Join our discord at: '
 
+
+# Broadcaster config
+broadcaster:
+  # The format the broadcaster uses
+  format: '&c&lBROADCAST: {MESSAGE}'
+
+  # The time to use between broadcast
+  # Acceptable times units are s,m and h
+  time: '5m'
+
+  # Should be use the messages in order or randomly
+  random: true
+
+  # The messages to be broadcast
+  messages:
+    - '&6Garth should config this'
+    - '&bHi server!'
+
+# Broadcast command
 # Just dont touch okay?
 version: "0.0.1"
